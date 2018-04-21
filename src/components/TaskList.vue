@@ -7,24 +7,24 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'TaskList',
-  mounted() {
-    this.getTasks();
+  mounted () {
+    this.getTasks()
   },
   computed: {
     ...mapState({
-      tasks: state => state.tasks.tasks,
-    }),
+      tasks: state => state.tasks.tasks
+    })
   },
   methods: {
     ...mapActions([
-      'getTasks',
-    ]),
-  },
-};
+      'getTasks'
+    ])
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

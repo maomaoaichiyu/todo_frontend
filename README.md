@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/maomaoaichiyu/todo_frontend.svg?branch=master)](https://travis-ci.org/maomaoaichiyu/todo_frontend)
+
 # todo_frontend
 
 > Frontend for todo_app

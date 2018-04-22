@@ -19,10 +19,10 @@ export default {
     attachTaskToGroup ({ commit }, data) {
       let taskId = data.taskId
       let group = data.group
-      request.patch({url: `${BACKEND_URL}/groups/${group}/${taskId}`, json: true})
+      request.put(`${BACKEND_URL}/groups/${group}/${taskId}`)
     },
     addNewGroup ({ commit }, group) {
-      request.post({url: `${BACKEND_URL}/groups`, json: true}, group)
+      request.post(`${BACKEND_URL}/groups`).json(group)
     }
   }
 }

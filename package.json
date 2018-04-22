@@ -11,9 +11,11 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
     "autofix": "eslint --ext .js,.vue src test/unit --fix",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "express": "^4.16.3",
     "request-promise-native": "^1.0.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

@@ -23,6 +23,9 @@ export default {
     },
     addNewGroup ({ commit }, group) {
       return request.post(`${BACKEND_URL}/groups`).json(group)
+    },
+    deleteGroup ({ commit }, group) {
+      return request.delete(`${BACKEND_URL}/groups/${group}`)
     }
   }
 }

@@ -7,6 +7,7 @@
         <option v-for="group in groups" :key="group._id" :value="group.name">{{group.name}}</option>
       </select>
     </div>
+    <button id="delete" v-bind:disabled="selectedGroup === 'none'" v-on:click="deleteChosenGroup">Del.Group</button>
     <div v-for="task in tasks" class="taskRow" :key="task._id">{{ task.text }}</div>
   </div>
 </template>
@@ -29,8 +30,15 @@ export default {
   },
   methods: {
     ...mapActions([
-      'getTasks'
-    ])
+      'getTasks',
+      'getGroups',
+      'deleteGroup'
+    ]),
+    deleteChosenGroup: function () {
+      return this.deleteGroup(this.selectedGroup)
+        .then(() => this.getGroups())
+        .then(() => { this.selectedGroup = 'none' })
+    }
   },
   watch: {
     'selectedGroup' (newValue, oldValue) {
@@ -63,5 +71,11 @@ export default {
 .taskRow {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+#delete {
+  width: 80px;
+  align-self: flex-end;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 </style>

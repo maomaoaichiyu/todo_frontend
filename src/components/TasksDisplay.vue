@@ -8,7 +8,9 @@
       </select>
     </div>
     <button id="delete" v-bind:disabled="selectedGroup === 'none'" v-on:click="deleteChosenGroup">Del.Group</button>
-    <div v-for="task in tasks" class="taskRow" :key="task._id">{{ task.text }}</div>
+    <div v-for="task in tasks" :key="task._id" class="taskRow">
+      <input type="checkbox" class="checkbox" :checked="task.checked"/>{{ task.text }}
+    </div>
   </div>
 </template>
 
@@ -71,11 +73,16 @@ export default {
 .taskRow {
   margin-top: 5px;
   margin-bottom: 5px;
+  margin-left: 10px;
+  align-self: flex-start;
 }
 #delete {
   width: 80px;
   align-self: flex-end;
   margin-right: 10px;
   margin-bottom: 10px;
+}
+.checkbox {
+  margin-right: 5px;
 }
 </style>

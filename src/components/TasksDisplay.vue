@@ -9,7 +9,8 @@
     </div>
     <button id="delete" v-bind:disabled="selectedGroup === 'none'" v-on:click="deleteChosenGroup">Del.Group</button>
     <div v-for="task in tasks" :key="task._id" class="taskRow">
-      <input type="checkbox" v-on:change="checkTheTask(task)" class="checkbox" :checked="task.checked"/>{{ task.text }}
+      <span><input type="checkbox" v-on:change="checkTheTask(task)" class="checkbox" :checked="task.checked"/>{{ task.text }}</span>
+      <img v-on:click="deleteChosenTask(task._id)" src="@/assets/delete.png" class="deleteTaskIcon"/>
     </div>
   </div>
 </template>
@@ -35,7 +36,8 @@ export default {
       'getTasks',
       'getGroups',
       'deleteGroup',
-      'checkTask'
+      'checkTask',
+      'deleteTask'
     ]),
     deleteChosenGroup: function () {
       return this.deleteGroup(this.selectedGroup)
@@ -47,11 +49,18 @@ export default {
         taskID: task._id,
         checked: !task.checked
       })
+    },
+    deleteChosenTask: function (taskID) {
+      return this.deleteTask(taskID)
+        .then(() => this.getTasks(this.getGroupNameForRequest(this.selectedGroup)))
+    },
+    getGroupNameForRequest (group) {
+      return group !== 'none' ? group : undefined
     }
   },
   watch: {
     'selectedGroup' (newValue, oldValue) {
-      this.getTasks(newValue !== 'none' ? newValue : undefined)
+      this.getTasks(this.getGroupNameForRequest(newValue))
     }
   }
 }
@@ -81,7 +90,10 @@ export default {
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 10px;
-  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
 }
 #delete {
   width: 80px;
@@ -91,5 +103,10 @@ export default {
 }
 .checkbox {
   margin-right: 5px;
+}
+.deleteTaskIcon {
+  width: 20px;
+  height: 20px;
+  align-self: flex-end;
 }
 </style>

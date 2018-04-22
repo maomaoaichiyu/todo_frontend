@@ -22,6 +22,9 @@ export default {
     },
     checkTask ({ commit }, {taskID, checked}) {
       return request.patch(`${BACKEND_URL}/tasks/${taskID}`).json({checked: checked})
+    },
+    deleteTask ({ commit }, taskID) {
+      return request.delete(`${BACKEND_URL}/tasks/${taskID}`)
     }
   }
 }

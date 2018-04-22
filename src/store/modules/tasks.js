@@ -17,7 +17,7 @@ export default {
         .then(tasks => commit('setTasks', tasks))
     },
     addNewTask ({ commit }, task) {
-      request.post({url: `${BACKEND_URL}/tasks`, json: true}, task)
+      request.post(`${BACKEND_URL}/tasks`).json(task)
     }
   }
 }

@@ -27,7 +27,7 @@ export default {
     ]),
     addGroup: function () {
       return this.addNewGroup({name: this.groupName})
-        .then(() => this.getGroups)
+        .then(() => this.getGroups())
     }
   }
 }

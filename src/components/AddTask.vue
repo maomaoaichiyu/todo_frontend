@@ -8,10 +8,10 @@
       <div id="grouptitle">Group(optional):</div>
       <select id="groupselect" v-model="selectedGroup">
         <option value="none"></option>
-        <option v-for="group in groups" :key="group._id" value="group.name">{{group.name}}</option>
+        <option v-for="group in groups" :key="group._id" :value="group.name">{{group.name}}</option>
       </select>
     </div>
-    <button id="addtaskbutton" v-on:click="addTaskWithContent">Add</button>
+    <button id="addtaskbutton" v-on:click="addTaskWithContent" v-bind:disabled="taskContent === ''">Add</button>
   </div>
 </template>
 
@@ -43,6 +43,10 @@ export default {
         promise = promise.then((taskId) => this.attachTaskToGroup({taskId: taskId, group: this.selectedGroup}))
       }
       return promise.then(() => this.getTasks())
+        .then(() => {
+          this.taskContent = ''
+          this.selectedGroup = 'none'
+        })
     }
   }
 }

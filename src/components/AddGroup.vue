@@ -4,7 +4,7 @@
       <div id="grouptitle">Group:</div>
       <input type="text" id="groupname" placeholder="group name..." v-model="groupName"/>
     </div>
-    <button id="addgroupbutton" v-on:click="addGroup">Add</button>
+    <button id="addgroupbutton" v-on:click="addGroup" v-bind:disabled="groupName === ''">Add</button>
   </div>
 </template>
 
@@ -30,6 +30,9 @@ export default {
     addGroup: function () {
       return this.addNewGroup({name: this.groupName})
         .then(() => this.getGroups())
+        .then(() => {
+          this.groupName = ''
+        })
     }
   }
 }

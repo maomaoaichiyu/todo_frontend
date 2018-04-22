@@ -39,17 +39,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #main {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-  #adds {
-    width: 40vw;
-  }
-  #taskDisplay {
-    width: 40vh;
-  }
+#main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#adds {
+  width: 40vw;
+  height: 100vh;
+}
+#taskDisplay {
+  width: 40vw;
+  height: 100vh;
+}
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div id="addgroup">
     <div id="grouptitle">Group:</div>
     <input type="text" id="groupname" placeholder="group name..." v-model="groupName"/>
-    <button id="addtask" v-on:click="addGroup">Add</button>
+    <button id="addgroupbutton" v-on:click="addGroup">Add</button>
   </div>
 </template>
 
@@ -35,7 +35,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#addtask {
-  width: 15px;
+#addgroup  {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+}
+#addgroup * {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 </style>

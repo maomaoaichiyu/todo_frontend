@@ -1,8 +1,6 @@
 <template>
   <div id="tasksDisplay">
-    <ul>
-      <div v-for="task in tasks" :key="task._id">{{ task.text }}</div>
-    </ul>
+    <div v-for="task in tasks" :key="task._id">{{ task.text }}</div>
   </div>
 </template>
 
@@ -29,9 +27,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #tasksDisplay {
-    height: 80vh;
-    width: 40vw;
-    background-color: #C4DBF9;
-  }
+#tasksDisplay {
+  background-color: #C4DBF9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#taskdisplay div {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 </style>

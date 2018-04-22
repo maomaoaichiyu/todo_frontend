@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div id="addtask">
     <div id="tasktitle">Task:</div><input type="text" id="taskcontent" placeholder="task content..." v-model="taskContent"/>
-    <div id="group">Task:</div>
+    <div id="group">Group(optional):</div>
     <select id="groupselect" v-model="selectedGroup">
       <option value="none"></option>
       <option v-for="group in groups" :key="group._id" value="group.name">{{group}}</option>
     </select>
-    <button id="addtask" v-on:click="addTaskWithContent">Add</button>
+    <button id="addtaskbutton" v-on:click="addTaskWithContent">Add</button>
   </div>
 </template>
 
@@ -45,7 +45,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#addtask {
-  width: 15px;
+#addtask  {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+}
+#addtask * {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 </style>

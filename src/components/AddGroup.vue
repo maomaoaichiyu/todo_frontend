@@ -1,8 +1,8 @@
 <template>
   <div>
-    <ul>
-      <li v-for="task in tasks" :key="task._id">{{ task.text }}</li>
-    </ul>
+    <div id="grouptitle">Group:</div>
+    <input type="text" id="groupname" placeholder="group name..." v-model="groupName"/>
+    <button id="addtask" v-on:click="addTaskWithContent">Add</button>
   </div>
 </template>
 
@@ -10,23 +10,32 @@
 import { mapState, mapActions } from 'vuex'
 
 export default {
-  name: 'TaskList',
-  mounted () {
-    this.getTasks()
+  name: 'AddGroup',
+  data () {
+    return {
+      groupName: ''
+    }
   },
   computed: {
     ...mapState({
-      tasks: state => state.tasks.tasks
     })
   },
   methods: {
     ...mapActions([
-      'getTasks'
-    ])
+      'getGroups',
+      'addNewGroup'
+    ]),
+    addGroup: function () {
+      return this.addNewGroup({name: this.groupName})
+        .then(() => this.getGroups)
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#addtask {
+  width: 15px;
+}
 </style>

@@ -20,6 +20,9 @@ export default {
       let taskId = data.taskId
       let group = data.group
       request.patch({url: `${BACKEND_URL}/groups/${group}/${taskId}`, json: true})
+    },
+    addNewGroup ({ commit }, group) {
+      request.post({url: `${BACKEND_URL}/groups`, json: true}, group)
     }
   }
 }

@@ -14,7 +14,7 @@
 import { mapState, mapActions } from 'vuex'
 
 export default {
-  name: 'TaskList',
+  name: 'AddTask',
   data () {
     return {
       taskContent: '',

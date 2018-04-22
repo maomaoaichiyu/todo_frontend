@@ -23,6 +23,7 @@ export default {
   },
   mounted () {
     this.getTasks()
+    this.getGroups()
   },
   computed: {
     ...mapState({
@@ -31,7 +32,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'getTasks'
+      'getTasks',
+      'getGroups'
     ])
   }
 }

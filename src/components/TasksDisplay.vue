@@ -5,22 +5,14 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'TasksDisplay',
-  mounted () {
-    this.getTasks()
-  },
   computed: {
     ...mapState({
       tasks: state => state.tasks.tasks
     })
-  },
-  methods: {
-    ...mapActions([
-      'getTasks'
-    ])
   }
 }
 </script>

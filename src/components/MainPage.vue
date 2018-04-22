@@ -1,11 +1,13 @@
 <template>
   <div id="main">
     <div id="adds">
-      <AddTask id="addtask"></AddTask>
+      <AddTask></AddTask>
       <br/>
-      <AddGroup id="addgroup"></AddGroup>
+      <AddGroup></AddGroup>
     </div>
-    <TasksDisplay id="taskDisplay"></TasksDisplay>
+    <div id="taskdisplay">
+      <TasksDisplay></TasksDisplay>
+    </div>
   </div>
 </template>
 
@@ -53,7 +55,7 @@ export default {
   width: 40vw;
   height: 100vh;
 }
-#taskDisplay {
+#taskdisplay {
   width: 40vw;
   height: 100vh;
 }

@@ -1,11 +1,16 @@
 <template>
   <div id="addtask">
-    <div id="tasktitle">Task:</div><input type="text" id="taskcontent" placeholder="task content..." v-model="taskContent"/>
-    <div id="group">Group(optional):</div>
-    <select id="groupselect" v-model="selectedGroup">
-      <option value="none"></option>
-      <option v-for="group in groups" :key="group._id" value="group.name">{{group.name}}</option>
-    </select>
+    <div id="task">
+      <div id="tasktitle">Task:</div>
+      <input type="text" id="taskcontent" placeholder="task content..." v-model="taskContent"/>
+    </div>
+    <div id="group">
+      <div id="grouptitle">Group(optional):</div>
+      <select id="groupselect" v-model="selectedGroup">
+        <option value="none"></option>
+        <option v-for="group in groups" :key="group._id" value="group.name">{{group.name}}</option>
+      </select>
+    </div>
     <button id="addtaskbutton" v-on:click="addTaskWithContent">Add</button>
   </div>
 </template>
@@ -47,12 +52,30 @@ export default {
 <style scoped>
 #addtask  {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin: 10px;
+  background-color: #A1BBE0;
 }
-#addtask * {
-  margin-left: 5px;
-  margin-right: 5px;
+#task, #group {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+#task *, #group * {
+  margin: 5px;
+}
+#addtaskbutton {
+  width: 55px;
+  align-self: flex-end;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+#groupselect {
+  width: 40%;
+}
+#taskcontent {
+  width: 60%;
 }
 </style>

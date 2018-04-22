@@ -2,6 +2,7 @@
   <div id="main">
     <div id="adds">
       <AddTask id="addtask"></AddTask>
+      <br/>
       <AddGroup id="addgroup"></AddGroup>
     </div>
     <TasksDisplay id="taskDisplay"></TasksDisplay>

@@ -1,4 +1,4 @@
-import http from '@/utils/http'
+import request from 'request-promise-native'
 
 const BACKEND_URL = process.env.BACKEND_URL || 'http://127.0.0.1:8081'
 
@@ -13,8 +13,7 @@ export default {
   },
   actions: {
     getTasks ({ commit }) {
-      http.get(`${BACKEND_URL}/tasks`)
-        .then(response => JSON.parse(response))
+      request.get({url: `${BACKEND_URL}/tasks`, json: true})
         .then(tasks => commit('setTasks', tasks))
     }
   }

@@ -4,7 +4,7 @@
     <div id="group">Group(optional):</div>
     <select id="groupselect" v-model="selectedGroup">
       <option value="none"></option>
-      <option v-for="group in groups" :key="group._id" value="group.name">{{group}}</option>
+      <option v-for="group in groups" :key="group._id" value="group.name">{{group.name}}</option>
     </select>
     <button id="addtaskbutton" v-on:click="addTaskWithContent">Add</button>
   </div>

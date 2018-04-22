@@ -1,18 +1,24 @@
 <template>
   <div id="main">
     <div id="adds">
+      <AddTask id="addtask"></AddTask>
+      <AddGroup id="addgroup"></AddGroup>
     </div>
     <TasksDisplay id="taskDisplay"></TasksDisplay>
   </div>
 </template>
 
 <script>
+import AddTask from '@/components/AddTask'
+import AddGroup from '@/components/AddGroup'
 import TasksDisplay from '@/components/TasksDisplay'
 import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'mainpage',
   components: {
+    'AddTask': AddTask,
+    'AddGroup': AddGroup,
     'TasksDisplay': TasksDisplay
   },
   mounted () {
@@ -40,8 +46,10 @@ export default {
     flex-direction: row;
     justify-content: flex-end;
   }
+  #adds {
+    width: 40vw;
+  }
   #taskDisplay {
-    height: 80vh;
     width: 40vh;
   }
 </style>

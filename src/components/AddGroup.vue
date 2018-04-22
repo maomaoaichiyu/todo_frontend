@@ -2,7 +2,7 @@
   <div>
     <div id="grouptitle">Group:</div>
     <input type="text" id="groupname" placeholder="group name..." v-model="groupName"/>
-    <button id="addtask" v-on:click="addTaskWithContent">Add</button>
+    <button id="addtask" v-on:click="addGroup">Add</button>
   </div>
 </template>
 

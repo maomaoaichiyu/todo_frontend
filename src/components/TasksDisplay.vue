@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'TasksDisplay',
@@ -26,6 +26,16 @@ export default {
       tasks: state => state.tasks.tasks,
       groups: state => state.groups.groups
     })
+  },
+  methods: {
+    ...mapActions([
+      'getTasks'
+    ])
+  },
+  watch: {
+    'selectedGroup' (newValue, oldValue) {
+      this.getTasks(newValue !== 'none' ? newValue : undefined)
+    }
   }
 }
 </script>

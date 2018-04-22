@@ -12,8 +12,9 @@ export default {
     }
   },
   actions: {
-    getTasks ({ commit }) {
-      return request.get({url: `${BACKEND_URL}/tasks`, json: true})
+    getTasks ({ commit }, group) {
+      let filter = group ? `?group=${group}` : ''
+      return request.get({url: `${BACKEND_URL}/tasks${filter}`, json: true})
         .then(tasks => commit('setTasks', tasks))
     },
     addNewTask ({ commit }, task) {

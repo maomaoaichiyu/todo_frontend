@@ -9,7 +9,7 @@
     </div>
     <button id="delete" v-bind:disabled="selectedGroup === 'none'" v-on:click="deleteChosenGroup">Del.Group</button>
     <div v-for="task in tasks" :key="task._id" class="taskRow">
-      <input type="checkbox" class="checkbox" :checked="task.checked"/>{{ task.text }}
+      <input type="checkbox" v-on:change="checkTheTask(task)" class="checkbox" :checked="task.checked"/>{{ task.text }}
     </div>
   </div>
 </template>
@@ -34,12 +34,19 @@ export default {
     ...mapActions([
       'getTasks',
       'getGroups',
-      'deleteGroup'
+      'deleteGroup',
+      'checkTask'
     ]),
     deleteChosenGroup: function () {
       return this.deleteGroup(this.selectedGroup)
         .then(() => this.getGroups())
         .then(() => { this.selectedGroup = 'none' })
+    },
+    checkTheTask: function (task) {
+      return this.checkTask({
+        taskID: task._id,
+        checked: !task.checked
+      })
     }
   },
   watch: {

@@ -19,6 +19,9 @@ export default {
     },
     addNewTask ({ commit }, task) {
       return request.post(`${BACKEND_URL}/tasks`).json(task)
+    },
+    checkTask ({ commit }, {taskID, checked}) {
+      return request.patch(`${BACKEND_URL}/tasks/${taskID}`).json({checked: checked})
     }
   }
 }

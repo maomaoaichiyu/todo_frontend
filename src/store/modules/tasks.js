@@ -13,11 +13,11 @@ export default {
   },
   actions: {
     getTasks ({ commit }) {
-      request.get({url: `${BACKEND_URL}/tasks`, json: true})
+      return request.get({url: `${BACKEND_URL}/tasks`, json: true})
         .then(tasks => commit('setTasks', tasks))
     },
     addNewTask ({ commit }, task) {
-      request.post(`${BACKEND_URL}/tasks`).json(task)
+      return request.post(`${BACKEND_URL}/tasks`).json(task)
     }
   }
 }

@@ -13,16 +13,16 @@ export default {
   },
   actions: {
     getGroups ({ commit }) {
-      request.get({url: `${BACKEND_URL}/groups`, json: true})
+      return request.get({url: `${BACKEND_URL}/groups`, json: true})
         .then(groups => commit('setGroups', groups))
     },
     attachTaskToGroup ({ commit }, data) {
       let taskId = data.taskId
       let group = data.group
-      request.put(`${BACKEND_URL}/groups/${group}/${taskId}`)
+      return request.put(`${BACKEND_URL}/groups/${group}/${taskId}`)
     },
     addNewGroup ({ commit }, group) {
-      request.post(`${BACKEND_URL}/groups`).json(group)
+      return request.post(`${BACKEND_URL}/groups`).json(group)
     }
   }
 }
